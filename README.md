@@ -11,4 +11,4 @@
 
 You're Done and all should be working!
 
-If you've found any problems feel free to [report it](https://github.com/IEEE-CUSB/task2-NodeJS-MiDo/issues)
+If you've found any problems feel free to [report it](https://github.com/IEEE-CUSB/task2-NodeJS-MiDo/issues/new)
