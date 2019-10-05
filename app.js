@@ -91,9 +91,11 @@ app.post('/submit', function (req, res) {
           };
         }),
     };
+    
     joi.validate(req.body,SchemaValidation,(err, result) => {
       if(err) {
           res.send(`<p style='color:red; text-align:center; margin-top:20px;'>${err.details[0].message}</p>`);
+          return; // don't try saving to db if the schema isnt valid
       }
       mysqlConnection.query('INSERT INTO `form` (`name`,`email`,`phone`,`university`,`faculty`,`academic_year`,`first_choice`,`second_choice`) VALUES ("'+req.body.name+'","'+req.body.email+'","'+req.body.phone+'","'+req.body.university+'","'+req.body.faculty+'","'+req.body.academicyear+'","'+req.body.first_choice+'","'+req.body.second_choice+'")', function(error, results, fields) {		
           if(error){
