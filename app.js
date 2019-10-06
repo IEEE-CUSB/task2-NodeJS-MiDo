@@ -99,7 +99,8 @@ app.post('/submit', function (req, res) {
       }
       mysqlConnection.query('INSERT INTO `form` (`name`,`email`,`phone`,`university`,`faculty`,`academic_year`,`first_choice`,`second_choice`) VALUES ("'+req.body.name+'","'+req.body.email+'","'+req.body.phone+'","'+req.body.university+'","'+req.body.faculty+'","'+req.body.academicyear+'","'+req.body.first_choice+'","'+req.body.second_choice+'")', function(error, results, fields) {		
           if(error){
-            throw error
+            res.send(`<p style='color:red; text-align:center; margin-top:20px;'>Make sure you entered Correct Data</p>`);
+            return;
           }
           else
           {
